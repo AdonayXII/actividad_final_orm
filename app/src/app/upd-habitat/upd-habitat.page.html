@@ -1,0 +1,36 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>upd-habitat</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">upd-habitat</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button (click)="goHome()">HOME</ion-button>
+  <ion-button (click)="gotoMyHabitats()">HABITATS LIST</ion-button>
+
+  <div>
+    <form [formGroup]="newHabitatForm" (ngSubmit)="updateHabitatForm()">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input formControlName="nombre" label="Nombre: " type="text" value={{oldHabitat.nombre}}></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="monstruo" label="Monstruo: " type="text" value={{oldHabitat.monstruo.id}}></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="mineral" label="Mineral: " type="text" value={{oldHabitat.mineral.id}}></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-button type="submit" [disabled]="newHabitatForm.invalid">ACTUALIZAR</ion-button>
+    </form>
+  </div>
+
+</ion-content>

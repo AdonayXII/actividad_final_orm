@@ -1,0 +1,87 @@
+package com.adonay.monsters.entity.models;
+
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="monsters")
+public class Monster {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	private String nombre;
+	
+	private String tipo;
+	
+	@ManyToOne(cascade = CascadeType.ALL)
+	@JoinColumn(name="monstruo")
+	private List<Monster> monsters;
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getTipo() {
+		return tipo;
+	}
+
+	public void setTipo(String tipo) {
+		this.tipo = tipo;
+	}
+
+	public List<Monster> getMonsters() {
+		return monsters;
+	}
+
+	public void setMonsters(List<Monster> monsters) {
+		this.monsters = monsters;
+	}
+
+	public Monster(String nombre, String tipo, List<Monster> monsters) {
+		super();
+		this.nombre = nombre;
+		this.tipo = tipo;
+		this.monsters = monsters;
+	}
+
+	public Monster() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "Monster [id=" + id + ", nombre=" + nombre + ", tipo=" + tipo + ", monsters=" + monsters + "]";
+	}
+
+	
+	
+	
+	
+	
+	
+}

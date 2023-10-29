@@ -1,0 +1,48 @@
+package com.adonay.monsters.entity.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+
+import com.adonay.monsters.entity.dao.IMonsterDao;
+import com.adonay.monsters.entity.models.Monster;
+
+@Service
+public class MonsterServiceImpl implements IMonsterService{
+
+	@Autowired
+	private IMonsterDao monsterDao;
+
+	@GetMapping("/monsters")
+	public List<Monster> getAll() {
+		return (List<Monster>) monsterDao.findAll();
+	}
+	
+	@GetMapping("/monsters/{id}")
+	public Monster get(long id) {
+		return monsterDao.findById(id).get();
+	}
+
+	@PostMapping("/monsters")
+	public void post(Monster monster) {
+		monsterDao.save(monster);
+	}
+
+	@PutMapping("/monsters/{id}")
+	public void put(Monster monster, long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@DeleteMapping("/monsters/{id}")
+	public void delete(@PathVariable(value = "id") long id) {
+		monsterDao.delete(id);
+	}
+
+}

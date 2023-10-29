@@ -1,0 +1,32 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>upd-mineral</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">upd-mineral</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button (click)="goHome()">HOME</ion-button>
+  <ion-button (click)="gotoMyMinerales()">MINERALES LIST</ion-button>
+
+  <div>
+    <form [formGroup]="newMineralForm" (ngSubmit)="updateMineralForm()">
+      <ion-row>
+        <ion-col>
+          <ion-item>
+            <ion-input formControlName="nombre" label="Nombre: " type="text" value={{oldMineral.nombre}}></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input formControlName="material" label="Material: " type="text" value={{oldMineral.material}}></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+      <ion-button type="submit" [disabled]="newMineralForm.invalid">ACTUALIZAR</ion-button>
+    </form>
+  </div>
+</ion-content>

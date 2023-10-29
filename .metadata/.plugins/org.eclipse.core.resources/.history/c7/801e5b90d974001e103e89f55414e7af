@@ -1,0 +1,13 @@
+package com.adonay.monsters.entity.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "minerales")
+public class Mineral {
+
+	private static final long serialVersionUID = 1L;
+
+	
+}

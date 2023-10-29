@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>list-habitats</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">list-habitats</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button (click)="goHome()">HOME</ion-button>
+  <ion-button (click)="gotoMyHabitatAddPage()">Añadir habitat</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let h of habitats">
+      <ion-label>
+        <h2>Nombre: {{h.nombre}}</h2>
+        <h2>Monstruo: {{h.monstruo.nombre}}</h2>
+        <h2>Mineral: {{h.mineral.nombre}}</h2>
+        <h3>ID: {{h.id}}</h3>
+        <ion-button type="submit" (click)="gotoMyEditHabitatPage(h.id)">EDITAR</ion-button>
+        <ion-button type="submit" (click)="delete(h.id)">ELIMINAR</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

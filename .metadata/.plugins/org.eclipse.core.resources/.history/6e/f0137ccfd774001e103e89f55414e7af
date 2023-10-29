@@ -1,0 +1,25 @@
+package com.adonay.monsters.entity.models;
+
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+
+public class Monster {
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private long id;
+	
+	private String nombre;
+	
+	private String tipo;
+	
+	@ManyToOne
+	@JoinColumn(name="monster")
+	private Monster monsters;
+	
+}

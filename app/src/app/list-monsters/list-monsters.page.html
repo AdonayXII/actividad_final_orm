@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>list-monsters</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">list-monsters</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-button (click)="goHome()">HOME</ion-button>
+  <ion-button (click)="gotoMyMonsterAddPage()">Añadir monstruo</ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let m of monsters">
+      <ion-label>
+        <h2>Nombre: {{m.nombre}}</h2>
+        <h2>Tipo: {{m.tipo}}</h2>
+        <h3>ID: {{m.id}}</h3>
+        <ion-button type="submit" (click)="gotoMyEditMonsterPage(m.id)">EDITAR</ion-button>
+        <ion-button type="submit" (click)="delete(m.id)">ELIMINAR</ion-button>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

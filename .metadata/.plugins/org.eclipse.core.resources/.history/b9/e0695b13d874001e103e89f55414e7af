@@ -1,0 +1,8 @@
+package com.adonay.monsters.entity.models;
+
+public class Habitat {
+	id
+	nombre
+	monster
+	mineral
+}

@@ -1,0 +1,45 @@
+package com.adonay.monsters.entity.services;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.adonay.monsters.entity.dao.IHabitatDao;
+import com.adonay.monsters.entity.models.Habitat;
+
+@Service
+public class HabitatServiceImpl implements IHabitatService{
+
+	@Autowired
+	private IHabitatDao habitatDao;
+	
+	@Override
+	public Habitat get(long id) {
+		return habitatDao.findById(id).get();
+	}
+
+	@Override
+	public List<Habitat> getAll() {
+		return habitatDao.findAll();
+	}
+
+	@Override
+	public void post(Habitat habitat) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void put(Habitat habitat, long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(long id) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

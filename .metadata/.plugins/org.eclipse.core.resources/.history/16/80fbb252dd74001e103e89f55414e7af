@@ -1,0 +1,13 @@
+package com.adonay.monsters.entity.services;
+
+import java.util.List;
+
+import com.adonay.monsters.entity.models.Habitat;
+
+public interface IMineralService {
+	public Habitat get(long id);
+	public List<Habitat> getAll();
+	public void post(Habitat habitat);
+	public void put(Habitat habitat, long id);
+	public void delete(long id);
+}

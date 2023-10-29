@@ -1,0 +1,19 @@
+package com.adonay.monsters.entity.models;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="habitats")
+public class Habitat {
+
+	private static final long serialVersionUID = 1L;
+
+	private long id;
+	
+	private String nombre;
+	
+	private Monster monster;
+	
+	private Mineral mineral;
+}

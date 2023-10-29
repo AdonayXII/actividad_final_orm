@@ -1,0 +1,41 @@
+package com.adonay.monsters.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import com.adonay.monsters.entity.dao.IMonsterDao;
+import com.adonay.monsters.entity.models.Monster;
+import com.adonay.monsters.entity.services.IMonsterService;
+
+@CrossOrigin(origins = "*")
+@RestController
+public class MonsterController {
+	@Autowired
+	IMonsterService monsterService;
+	
+	@GetMapping("/monsters")
+	public List<Monster> getAllMonsters(){
+		return monsterService.getAll();
+	}
+	
+	@GetMapping("/monsters/{id}")
+	public Monster getOne(@PathVariable(value="id") long id){
+		return monsterService.get(id);
+	}
+	
+	@PostMapping("/monsters")
+	public void post(Monster monster) {
+		monsterService.post(monster);
+	}
+	
+	@PutMapping("/monsters/{id}")
+	public void put(Monster monster, @PathVariable(value="id")long id) {
+		monsterService.put(monster, id);
+	}
+	
+	@DeleteMapping("/monsters/{id}")
+	public void delete(@PathVariable(value="id") long id) {
+		monsterService.delete(id);
+	}
+}
